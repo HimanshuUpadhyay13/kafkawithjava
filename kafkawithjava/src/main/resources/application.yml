@@ -1,0 +1,27 @@
+server:
+  port: 9000
+enotify:
+  username: _NEXUS_READONLY
+  password: Z25xWGRkRFplczA3
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: 10.176.5.205:9092
+      group-id: group_id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: 10.176.5.205:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  datasource:
+    url: jdbc:mysql://10.176.14.12:3306/notificationmeta?&useSSL=false&serverTimezone=UTC
+    username: batchhubdev
+    password: BatchHub#Dev1
+    driverClass: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate.ddl-auto: update
+    hibernate.temp.use_jdbc_metadata_defaults: false
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    datasource-platform: org.hibernate.dialect.MySQL5InnoDBDialect
